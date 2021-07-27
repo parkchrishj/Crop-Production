@@ -1,4 +1,4 @@
-Country,Income_Group,ISO2,ISO3,prod_yield,Year,Fertilizers_y,prod_yield_value,Pesticide_x
+Country,Income_Group,iSO2,iSO3,prod_yield,Year,Fertilizers_y,prod_yield_value,Pesticide_x
 Japan,High-income economies,JP,JPN,Value Prod,2007,4252528,273071547,61164
 Bangladesh,Lower-middle-income economies,BD,BGD,Value Prod,2017,4612000,504341352,15144
 South Africa,Upper-middle-income economies,ZA,ZAF,Value Prod,2011,1384655,302189804,26857
@@ -18,7 +18,7 @@ Estonia,High-income economies,EE,EST,Value Prod,2006,135283,3364376,452
 Viet Nam,Lower-middle-income economies,VN,VNM,Value Prod,2010,4086821,615553806,19154
 Pakistan,Lower-middle-income economies,PK,PAK,Value Prod,2008,7171258,823342940,4947
 Burkina Faso,Low income economies,BF,BFA,Value Prod,2002,1290,27770792,41
-C魌e d'Ivoire,Lower-middle-income economies,CI,CIV,Value Prod,2005,170004,95165777,93
+C么te d'Ivoire,Lower-middle-income economies,CI,CIV,Value Prod,2005,170004,95165777,93
 Malawi,Low income economies,MW,MWI,Value Prod,2013,194192,158341183,1500
 Cameroon,Lower-middle-income economies,CM,CMR,Value Prod,2011,149289,109984086,1373
 United States of America,High-income economies,US,USA,Value Prod,2018,44765712.99,4112591490,407779
@@ -150,7 +150,7 @@ Yemen,Low income economies,YE,YEM,Value Prod,2010,54000,20367666,134
 Turkey,Upper-middle-income economies,TR,TUR,Value Prod,2002,4175107,646258081,27915
 France,High-income economies,FR,FRA,Value Prod,2014,8805057,948919265,75339
 Latvia,High-income economies,LV,LVA,Value Prod,2007,209453,13203055,1113
-C魌e d'Ivoire,Lower-middle-income economies,CI,CIV,Value Prod,2009,19314,97173503,93
+C么te d'Ivoire,Lower-middle-income economies,CI,CIV,Value Prod,2009,19314,97173503,93
 Republic of Moldova,Lower-middle-income economies,MD,MDA,Value Prod,2014,129917,35866878,2500
 Oman,High-income economies,OM,OMN,Value Prod,2015,30000,5471046,333
 Mexico,Upper-middle-income economies,MX,MEX,Value Prod,2015,5367996,937404657,48293
@@ -277,7 +277,7 @@ Burundi,Low income economies,BI,BDI,Value Prod,2009,3303,22323100,178
 Costa Rica,Upper-middle-income economies,CR,CRI,Value Prod,2009,317856,72944886,12307
 Finland,High-income economies,FI,FIN,Value Prod,2011,405862,26580565,1708
 Iran (Islamic Republic of),Upper-middle-income economies,IR,IRN,Value Prod,2016,1847942,537978469,6841
-C魌e d'Ivoire,Lower-middle-income economies,CI,CIV,Value Prod,2003,168387,88520292,93
+C么te d'Ivoire,Lower-middle-income economies,CI,CIV,Value Prod,2003,168387,88520292,93
 Zimbabwe,Low income economies,ZW,ZWE,Value Prod,2011,134098,35521780,3340
 Albania,Upper-middle-income economies,AL,ALB,Value Prod,2017,143494,18914392,615
 Albania,Upper-middle-income economies,AL,ALB,Value Prod,2004,129231,11116742,354
@@ -637,7 +637,7 @@ Mexico,Upper-middle-income economies,MX,MEX,Value Prod,2005,3597104,811813996,39
 Mexico,Upper-middle-income economies,MX,MEX,Value Prod,2016,6766263,990181710,47421
 Venezuela (Bolivarian Republic of),Upper-middle-income economies,VE,VEN,Value Prod,2007,778000,115316694,3928
 Nepal,Low income economies,NP,NPL,Value Prod,2003,111524,100225118,143
-C魌e d'Ivoire,Lower-middle-income economies,CI,CIV,Value Prod,2008,24784,105083328,93
+C么te d'Ivoire,Lower-middle-income economies,CI,CIV,Value Prod,2008,24784,105083328,93
 Oman,High-income economies,OM,OMN,Value Prod,2003,6115,3257130,109
 Armenia,Upper-middle-income economies,AM,ARM,Value Prod,2008,24518.57,15595296,218
 North Macedonia,Upper-middle-income economies,MK,MKD,Value Prod,2009,60439,11634054,98
@@ -680,7 +680,7 @@ Trinidad and Tobago,High-income economies,TT,TTO,Value Prod,2005,7935,3284796,13
 United States of America,High-income economies,US,USA,Value Prod,2017,45547513.87,4149779102,407779
 Ukraine,Lower-middle-income economies,UA,UKR,Value Prod,2018,4865415,711497460,25341
 Sweden,High-income economies,SE,SWE,Value Prod,2012,615161,42204280,1814
-C魌e d'Ivoire,Lower-middle-income economies,CI,CIV,Value Prod,2002,259252,90742106,93
+C么te d'Ivoire,Lower-middle-income economies,CI,CIV,Value Prod,2002,259252,90742106,93
 Mozambique,Low income economies,MZ,MOZ,Value Prod,2010,102592,94659670,1189
 Mauritius,Upper-middle-income economies,MU,MUS,Value Prod,2008,41156,27779904,827
 Bangladesh,Lower-middle-income economies,BD,BGD,Value Prod,2002,3298690,316810530,4206
@@ -754,7 +754,7 @@ Madagascar,Low income economies,MG,MDG,Value Prod,2006,16161,86870413,109
 Honduras,Lower-middle-income economies,HN,HND,Value Prod,2007,237176,63909111,5284
 Indonesia,Lower-middle-income economies,ID,IDN,Value Prod,2018,10332901,1215541215,1597
 Poland,High-income economies,PL,POL,Value Prod,2003,3760093,344455242,7184
-C魌e d'Ivoire,Lower-middle-income economies,CI,CIV,Value Prod,2007,50642,99084132,93
+C么te d'Ivoire,Lower-middle-income economies,CI,CIV,Value Prod,2007,50642,99084132,93
 Hungary,High-income economies,HU,HUN,Value Prod,2014,1377969,127803576,9011
 Peru,Upper-middle-income economies,PE,PER,Value Prod,2006,698320.82,164513769,4238
 "China, Taiwan Province of",High-income economies,TW,TWN,Value Prod,2009,997343,48754920,8589
@@ -1070,7 +1070,7 @@ Austria,High-income economies,AT,AUT,Value Prod,2005,494184,51566630,3404
 Italy,High-income economies,IT,ITA,Value Prod,2018,1822115,353304140,54153
 Philippines,Lower-middle-income economies,PH,PHL,Value Prod,2004,2269167,458940041,18193
 Ecuador,Upper-middle-income economies,EC,ECU,Value Prod,2008,77653,123248460,15396
-C魌e d'Ivoire,Lower-middle-income economies,CI,CIV,Value Prod,2006,248894,99235549,93
+C么te d'Ivoire,Lower-middle-income economies,CI,CIV,Value Prod,2006,248894,99235549,93
 Barbados,High-income economies,BB,BRB,Value Prod,2008,795,1630745,168
 Poland,High-income economies,PL,POL,Value Prod,2010,5017261,321383430,19449
 Egypt,Lower-middle-income economies,EG,EGY,Value Prod,2009,168247,576939895,9013
@@ -1133,13 +1133,13 @@ Azerbaijan,Upper-middle-income economies,AZ,AZE,Value Prod,2002,54898,34179306,1
 Malawi,Low income economies,MW,MWI,Value Prod,2012,194899,146001576,776
 Myanmar,Lower-middle-income economies,MM,MMR,Value Prod,2002,69043,210045102,949
 Australia,High-income economies,AU,AUS,Value Prod,2015,5352629,538261549,50922
-C魌e d'Ivoire,Lower-middle-income economies,CI,CIV,Value Prod,2011,114565,104604570,93
+C么te d'Ivoire,Lower-middle-income economies,CI,CIV,Value Prod,2011,114565,104604570,93
 United States of America,High-income economies,US,USA,Value Prod,2009,32647306,4013493974,358338
 Mauritius,Upper-middle-income economies,MU,MUS,Value Prod,2013,38197,23637228,790
 Albania,Upper-middle-income economies,AL,ALB,Value Prod,2008,106364,13240423,399
 Brazil,Upper-middle-income economies,BR,BRA,Value Prod,2017,13468902,6781500824,377176
 Brazil,Upper-middle-income economies,BR,BRA,Value Prod,2004,23706306,4016424510,214725
-C魌e d'Ivoire,Lower-middle-income economies,CI,CIV,Value Prod,2004,238537,91985040,93
+C么te d'Ivoire,Lower-middle-income economies,CI,CIV,Value Prod,2004,238537,91985040,93
 Guyana,Upper-middle-income economies,GY,GUY,Value Prod,2004,46155,26293746,290
 Croatia,High-income economies,HR,HRV,Value Prod,2018,428344,33236070,1676
 Poland,High-income economies,PL,POL,Value Prod,2002,3724953,386105922,10358
@@ -1252,7 +1252,7 @@ Spain,High-income economies,ES,ESP,Value Prod,2005,4286350,411121886,41017
 Zambia,Lower-middle-income economies,ZM,ZMB,Value Prod,2015,374086,53876238,1670
 Thailand,Upper-middle-income economies,TH,THA,Value Prod,2015,2798152,1221075828,26296
 Portugal,High-income economies,PT,PRT,Value Prod,2010,538192.88,43869693,13774
-C魌e d'Ivoire,Lower-middle-income economies,CI,CIV,Value Prod,2010,195984,104292573,93
+C么te d'Ivoire,Lower-middle-income economies,CI,CIV,Value Prod,2010,195984,104292573,93
 Canada,High-income economies,CA,CAN,Value Prod,2018,8418000,342366725,90839
 Turkey,Upper-middle-income economies,TR,TUR,Value Prod,2008,3923962,653024050,37640
 Lithuania,High-income economies,LT,LTU,Value Prod,2008,1195862,24009220,2723
