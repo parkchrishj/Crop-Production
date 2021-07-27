@@ -195,8 +195,6 @@
                             <h4 class="title wow fadeInUp" data-wow-duration="1.3s" data-wow-delay="0.2s">About Our
                                 Creative Proccess</h4>
                             <!-- Create a div where the graph will take place -->
-                            <!-- Initialize a select button -->
-                            <select id="selectButton"></select>
                             <div class="wow fadeInUp" data-wow-duration="1.3s" data-wow-delay="0.4s"
                                 id="scatterplot_crop_output"></div>
                             <!-- A bit of CSS: change stroke color of circle on hover (white -> black) -->
@@ -225,10 +223,10 @@
                                 d3.csv("https://raw.githubusercontent.com/parkchrishj/Crop-Production/main/Crop%20Production%20MP2/assets/Crops/Crop_Production.csv")
                                     .then(function (data) {
                                         // x axis
-                                        const x = d3.scaleLinear().domain([0, 150000]).range([0, width - 200]);
+                                        const x = d3.scaleLinear().domain([0, 80000]).range([0, width - 200]);
                                         svg.append("g")
                                             .attr("transform", `translate(0, ${height})`)
-                                            .call(d3.axisBottom(x).ticks(6));
+                                            .call(d3.axisBottom(x).ticks(8));
                                         // const x = d3.scaleLog().domain([0, 1000000]).range([0, width]);
                                         // svg.append("g")
                                         //     .attr("transform", `translate(0, ${height})`)
@@ -239,9 +237,9 @@
                                             .attr("y", height + 50)
                                             .text("Agricultural Pesticides Used (Tonnes)");
                                         // y axis
-                                        const y = d3.scaleLinear().domain([0, 30000000]).range([height, 0]);
+                                        const y = d3.scaleLinear().domain([0, 10000000]).range([height, 0]);
                                         svg.append("g")
-                                            .call(d3.axisLeft(y).ticks(7));
+                                            .call(d3.axisLeft(y).ticks(10));
                                         svg.append("text")
                                             .attr("text-anchor", "end")
                                             .attr("x", 0)
@@ -251,19 +249,11 @@
                                         // Add a scale for bubble size
                                         const z = d3.scaleSqrt()
                                             .domain([200000, 13100000000])
-                                            .range([2, 30]);
+                                            .range([2, 50]);
                                         // Add a scale for bubble color
                                         allgroups = new Set(data.map(d => d.Income_Group))//= ["High-income economies", "Upper-middle-income economies", "Lower-middle-income economies", "Low income economies"]
-                                        yeargroups = new Set(data.map(d => d.Year).sort(d3.ascending))
+                                        // yeargroups = new Set(data.map(d => d.Year).sort(d3.ascending))
                                         // add the options to the button
-                                        d3.select("#selectButton")
-                                            .selectAll('myOptions')
-                                            .data(yeargroups)
-                                            .enter()
-                                            .append('option')
-                                            .text(function (d) { return d; }) // text showed in the menu
-                                            .attr("value", function (d) { return d; }) // corresponding value returned by the button
-
                                         const myColor = d3.scaleOrdinal()
                                             .domain(allgroups)
                                             .range(d3.schemeSet1);
@@ -288,14 +278,14 @@
                                                 .duration(200)
                                             tooltip
                                                 .style("opacity", 1)
-                                                .html("Country: " + d.Country)
+                                                .html("Country: " + d.country)
                                                 .style("left", (event.x) / 2 + "px")
                                                 .style("top", (event.y) / 2 - 50 + "px")
                                         }
                                         const moveTooltip = function (event, d) {
                                             tooltip
-                                                .style("left", (event.x) / 2 + "px")
-                                                .style("top", (event.y) / 2 - 50 + "px")
+                                                .style("left", (event.x) / 2 + width / 2 + "px")
+                                                .style("top", (event.y) / 2 + "px")
                                         }
                                         const hideTooltip = function (event, d) {
                                             tooltip
@@ -308,12 +298,12 @@
                                         //       HIGHLIGHT GROUP      //
                                         // ---------------------------//
                                         // What to do when one group is hovered
-                                        // const highlight = function (event, d) {
-                                        //     // reduce opacity of all groups
-                                        //     d3.selectAll(".bubbles").style("opacity", .35)
-                                        //     // expect the one that is hovered
-                                        //     d3.selectAll("." + d).style("opacity", 1)
-                                        // }
+                                        const highlight = function (event, d) {
+                                            // reduce opacity of all groups
+                                            d3.selectAll(".bubbles").style("opacity", 1)
+                                            // expect the one that is hovered
+                                            // d3.selectAll("." + d).style("opacity", 1)
+                                        }
 
                                         // And when it is not hovered anymore
                                         const noHighlight = function (event, d) {
@@ -341,12 +331,12 @@
                                         //     .on("mouseleave", hideTooltip)
                                         const dotto = svg.append('g')
                                             .selectAll("dot")
-                                            .data(data.filter(function (d) { return d.Year == "2002" }))
+                                            .data(data)
                                             .join("circle")
                                             .attr("class", function (d) { return "bubbles " + d.Income_Group })
                                             .attr("cx", d => x(d.Pesticide_x))
                                             .attr("cy", d => y(d.Fertilizers_y))
-                                            .attr("r", d => z(d.prod_yield_value))
+                                            .attr("r", d => z(d.Prod_value))
                                             .style("fill", d => myColor(d.Income_Group))
                                             // -3- Trigger the functions for hover
                                             .on("mouseover", showTooltip)
@@ -445,24 +435,24 @@
     <section id="services" class="features_area pt-120">
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-lg-6">
+                <div class="col-lg-12">
                     <div class="section_title text-center pb-25">
                         <h4 class="title wow fadeInUp" data-wow-duration="1.3s" data-wow-delay="0.2s">Our Services</h4>
                         <p class="wow fadeInUp" data-wow-duration="1.3s" data-wow-delay="0.4s">Lorem ipsum dolor sit
                             amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt labor dolore.</p>
-                        <svg id="fert_bubble" width="400" height="300"></svg>
+                        <svg id="mapping" width="600" height="300"></svg>
                         <script>
                             // The svg
-                            const svg = d3.select("#fert_bubble"),
-                                width = +svg.attr("width"),
-                                height = +svg.attr("height");
+                            const mappery = d3.select("#mapping"),
+                                map_width = +svg.attr("width"),
+                                map_height = +svg.attr("height");
 
                             // Map and projection
                             const path = d3.geoPath();
                             const projection = d3.geoMercator()
                                 .scale(70)
                                 .center([0, 20])
-                                .translate([width / 2, height / 2]);
+                                .translate([map_width / 2 + 300, map_height / 2 + 200]);
 
                             // Data and color scale
                             let data = new Map()
@@ -470,39 +460,15 @@
                                 .domain([100000, 1000000, 10000000, 30000000, 100000000, 500000000])
                                 .range(d3.schemeBlues[7]);
 
-                            // Promise.all([
-                            //     d3.json("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world.geojson"),
-                            //     d3.csv("https://raw.githubusercontent.com/parkchrishj/Crop-Production/main/Crop%20Production%20MP2/assets/Crops/Crop_Production.csv", function (d) {
-                            //         data.set(d.ISO3, +d.Pesticide_x)
-                            //     })
-                            // ]).then(function (loadData) {
-                            //     let topo = loadData[0]
-                            //     //Draw the map
-                            //     svg.append("g")
-                            //         .selectAll("path")
-                            //         .data(topo.features)
-                            //         .join("path")
-                            //         // draw each country
-                            //         .attr("d", d3.geoPath()
-                            //             .projection(projection)
-                            //         )
-                            //         // set the color of each country
-                            //         .attr("fill", function (d) {
-                            //             d.total = data.get(d.ISO3) || 0;
-                            //             return colorScale(d.total);
-
-                            //         })
-                            // })
                             Promise.all([
                                 d3.json("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world.geojson"),
-                                d3.csv("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world_population.csv", function (d) {
-                                    data.set(d.code, +d.pop)
+                                d3.csv("https://raw.githubusercontent.com/parkchrishj/Crop-Production/main/Crop%20Production%20MP2/assets/Crops/Prod_Quantity_Crops.csv", function (d) {
+                                    data.set(d.iso3, +d.prod_avg_value)
                                 })
                             ]).then(function (loadData) {
                                 let topo = loadData[0]
-
-                                // Draw the map
-                                svg.append("g")
+                                //Draw the map
+                                mappery.append("g")
                                     .selectAll("path")
                                     .data(topo.features)
                                     .join("path")
@@ -512,10 +478,35 @@
                                     )
                                     // set the color of each country
                                     .attr("fill", function (d) {
+                                        // if (d.year == "2010") {
                                         d.total = data.get(d.id) || 0;
                                         return colorScale(d.total);
+                                        // }
                                     })
                             })
+                            // Promise.all([
+                            //     d3.json("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world.geojson"),
+                            //     d3.csv("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world_population.csv", function (d) {
+                            //         data.set(d.code, +d.pop)
+                            //     })
+                            // ]).then(function (loadData) {
+                            //     let topo = loadData[0]
+
+                            //     // Draw the map
+                            //     mappery.append("g")
+                            //         .selectAll("path")
+                            //         .data(topo.features)
+                            //         .join("path")
+                            //         // draw each country
+                            //         .attr("d", d3.geoPath()
+                            //             .projection(projection)
+                            //         )
+                            //         // set the color of each country
+                            //         .attr("fill", function (d) {
+                            //             d.total = data.get(d.id) || 0;
+                            //             return colorScale(d.total);
+                            //         })
+                            // })
                         </script>
                     </div> <!-- section title -->
                 </div>
