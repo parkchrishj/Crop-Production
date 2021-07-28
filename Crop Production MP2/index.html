@@ -137,53 +137,6 @@
 
     <!--====== HEADER PART ENDS ======-->
 
-    <!--====== FEATURES PART START ======-->
-
-    <section id="features" class="features_area pt-120">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-6">
-                    <div class="section_title text-center pb-25">
-                        <h4 class="title wow fadeInUp" data-wow-duration="1.3s" data-wow-delay="0.2s">Why Choose Us</h4>
-                        <p class="wow fadeInUp" data-wow-duration="1.3s" data-wow-delay="0.4s">Lorem ipsum dolor sit
-                            amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt labor dolore.</p>
-                    </div> <!-- section title -->
-                </div>
-            </div> <!-- row -->
-            <div class="row justify-content-center">
-                <div class="col-lg-4 col-md-7">
-                    <div class="single_features text-center mt-30 wow fadeInUp" data-wow-duration="1.3s"
-                        data-wow-delay="0.2s">
-                        <i class="lni lni-layers"></i>
-                        <h4 class="features_title">Bootstrap 5 Based</a></h4>
-                        <p>Lorem ipsum dolor sit amet, sadipscing elitr, sed diam nonumy eirmod tempor invidunt labor
-                            dolore magna .</p>
-                    </div> <!-- single features -->
-                </div>
-                <div class="col-lg-4 col-md-7">
-                    <div class="single_features text-center mt-30 wow fadeInUp" data-wow-duration="1.3s"
-                        data-wow-delay="0.4s">
-                        <i class="lni lni-layout"></i>
-                        <h4 class="features_title">Clean Design</a></h4>
-                        <p>Lorem ipsum dolor sit amet, sadipscing elitr, sed diam nonumy eirmod tempor invidunt labor
-                            dolore magna .</p>
-                    </div> <!-- single features -->
-                </div>
-                <div class="col-lg-4 col-md-7">
-                    <div class="single_features text-center mt-30 wow fadeInUp" data-wow-duration="1.3s"
-                        data-wow-delay="0.6s">
-                        <i class="lni lni-bolt"></i>
-                        <h4 class="features_title">Cutting-edge Features</a></h4>
-                        <p>Lorem ipsum dolor sit amet, sadipscing elitr, sed diam nonumy eirmod tempor invidunt labor
-                            dolore magna .</p>
-                    </div> <!-- single features -->
-                </div>
-            </div> <!-- row -->
-        </div> <!-- container -->
-    </section>
-
-    <!--====== FEATURES PART ENDS ======-->
-
     <!--====== ABOUT PART START ======-->
 
     <section id="about" class="pt-130">
@@ -314,21 +267,6 @@
                                         // ---------------------------//
                                         //       CIRCLES              //
                                         // ---------------------------//
-
-                                        // Add dots  
-                                        // const dotto = svg.append('g')
-                                        //     .selectAll("dot")
-                                        //     .data(data.filter(function (d) { return d.Year == "2012" }))
-                                        //     .join("circle")
-                                        //     .attr("class", function (d) { return "bubbles " + d.Income_Group })
-                                        //     .attr("cx", d => x(d.Pesticide_x))
-                                        //     .attr("cy", d => y(d.Fertilizers_y))
-                                        //     .attr("r", d => z(d.prod_yield_value))
-                                        //     .style("fill", d => myColor(d.Income_Group))
-                                        //     // -3- Trigger the functions for hover
-                                        //     .on("mouseover", showTooltip)
-                                        //     .on("mousemove", moveTooltip)
-                                        //     .on("mouseleave", hideTooltip)
                                         const dotto = svg.append('g')
                                             .selectAll("dot")
                                             .data(data)
@@ -399,8 +337,6 @@
                                             .attr("cy", (d, i) => 10 + i * (size + 5)) // 100 is where the first dot appears. 25 is the distance between dots
                                             .attr("r", 7)
                                             .style("fill", d => myColor(d))
-                                            .on("mouseover", highlight)
-                                            .on("mouseleave", noHighlight)
 
                                         // Add labels beside legend dots
                                         svg.selectAll("mylabels")
@@ -413,8 +349,6 @@
                                             .text(d => d)
                                             .attr("text-anchor", "left")
                                             .style("alignment-baseline", "middle")
-                                            .on("mouseover", highlight)
-                                            .on("mouseleave", noHighlight)
                                     })
 
                             </script>
@@ -440,133 +374,132 @@
                         <h4 class="title wow fadeInUp" data-wow-duration="1.3s" data-wow-delay="0.2s">Our Services</h4>
                         <p class="wow fadeInUp" data-wow-duration="1.3s" data-wow-delay="0.4s">Lorem ipsum dolor sit
                             amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt labor dolore.</p>
-                        <svg id="mapping" width="600" height="300"></svg>
+                        <div id="circbubbles" class="wow fadeInUp" data-wow-duration="1.3s" data-wow-delay="0.4s"></div>
                         <script>
-                            // The svg
-                            const mappery = d3.select("#mapping"),
-                                map_width = +svg.attr("width"),
-                                map_height = +svg.attr("height");
 
-                            // Map and projection
-                            const path = d3.geoPath();
-                            const projection = d3.geoMercator()
-                                .scale(70)
-                                .center([0, 20])
-                                .translate([map_width / 2 + 300, map_height / 2 + 200]);
+                            // set the dimensions and margins of the graph
+                            const width_circle = 400
+                            const height_circle = 400
 
-                            // Data and color scale
-                            let data = new Map()
-                            const colorScale = d3.scaleThreshold()
-                                .domain([100000, 1000000, 10000000, 30000000, 100000000, 500000000])
-                                .range(d3.schemeBlues[7]);
+                            // append the svg object to the body of the page
+                            const svg_bubbles = d3.select("#circbubbles")
+                                .append("svg")
+                                .attr("width", width_circle)
+                                .attr("height", height_circle)
 
-                            Promise.all([
-                                d3.json("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world.geojson"),
-                                d3.csv("https://raw.githubusercontent.com/parkchrishj/Crop-Production/main/Crop%20Production%20MP2/assets/Crops/Prod_Quantity_Crops.csv", function (d) {
-                                    data.set(d.iso3, +d.prod_avg_value)
-                                })
-                            ]).then(function (loadData) {
-                                let topo = loadData[0]
-                                //Draw the map
-                                mappery.append("g")
-                                    .selectAll("path")
-                                    .data(topo.features)
-                                    .join("path")
-                                    // draw each country
-                                    .attr("d", d3.geoPath()
-                                        .projection(projection)
-                                    )
-                                    // set the color of each country
-                                    .attr("fill", function (d) {
-                                        // if (d.year == "2010") {
-                                        d.total = data.get(d.id) || 0;
-                                        return colorScale(d.total);
-                                        // }
-                                    })
+                            // Read data
+                            d3.csv("https://raw.githubusercontent.com/parkchrishj/Crop-Production/main/Crop%20Production%20MP2/assets/Crops/Crop_Production.csv").then(function (data) {
+
+
+                                // Color palette for continents?
+                                const color_c = d3.scaleOrdinal()
+                                    .domain(allgroups)
+                                    .range(d3.schemeSet1);
+
+                                // Size scale for countries
+                                const size_c = d3.scaleLinear()
+                                    .domain([0, 80000000])
+                                    .range([3, 65])  // circle will be between 7 and 55 px wide
+
+                                // create a tooltip
+                                const Tooltip_c = d3.select("#circbubbles")
+                                    .append("div")
+                                    .style("opacity", 0)
+                                    .attr("class", "tooltip")
+                                    .style("background-color", "white")
+                                    .style("border", "solid")
+                                    .style("border-width", "2px")
+                                    .style("border-radius", "5px")
+                                    .style("padding", "5px")
+
+                                // Three function that change the tooltip when user hover / move / leave a cell
+                                const mouseover_c = function (event, d) {
+                                    Tooltip_c
+                                        .transition()
+                                        .duration(200)
+                                    Tooltip_c
+                                        .style("opacity", 1)
+                                        .html('<u>' + d.country + '</u>' + "<br>" + (+d.Fertilizers_y + +d.Pesticide_x) + " tonnes")
+
+                                }
+
+                                // Initialize the circle: all located at the center of the svg area
+                                var node = svg_bubbles.append("g")
+                                    .selectAll("circle")
+                                    .data(data)
+                                    .join("circle")
+                                    .attr("class", "node")
+                                    .attr("r", d => size_c(+d.Fertilizers_y + +d.Pesticide_x))
+                                    .attr("cx", 10)
+                                    .attr("cy", 20)
+                                    .style("fill", d => color_c(d.Income_Group))
+                                    .style("fill-opacity", 0.8)
+                                    .attr("stroke", "black")
+                                    .style("stroke-width", 1)
+                                    .on("mouseover", mouseover_c) // What to do when hovered
+                                    .call(d3.drag() // call specific function when circle is dragged
+                                        .on("start", dragstarted)
+                                        .on("drag", dragged)
+                                        .on("end", dragended));
+
+                                // Features of the forces applied to the nodes:
+                                const simulation = d3.forceSimulation()
+                                    .force("center", d3.forceCenter().x(width_circle / 2).y(height_circle / 2)) // Attraction to the center of the svg area
+                                    .force("charge", d3.forceManyBody().strength(.1)) // Nodes are attracted one each other of value is > 0
+                                    .force("collide", d3.forceCollide().strength(.2).radius(function (d) { return (size_c(d.Fertilizers_y) + 3) }).iterations(1)) // Force that avoids circle overlapping
+
+                                // Apply these forces to the nodes and update their positions.
+                                // Once the force algorithm is happy with positions ('alpha' value is low enough), simulations will stop.
+                                simulation
+                                    .nodes(data)
+                                    .on("tick", function (d) {
+                                        node
+                                            .attr("cx", d => d.x)
+                                            .attr("cy", d => d.y)
+                                    });
+
+                                // What happens when a circle is dragged?
+                                function dragstarted(event, d) {
+                                    if (!event.active) simulation.alphaTarget(.03).restart();
+                                    d.fx = d.x;
+                                    d.fy = d.y;
+                                }
+                                function dragged(event, d) {
+                                    d.fx = event.x;
+                                    d.fy = event.y;
+                                }
+                                function dragended(event, d) {
+                                    if (!event.active) simulation.alphaTarget(.03);
+                                    d.fx = null;
+                                    d.fy = null;
+                                }
+                                const size = 20
+                                svg_bubbles.selectAll("myrect")
+                                    .data(allgroups)
+                                    .join("circle")
+                                    .attr("cx", 10)
+                                    .attr("cy", (d, i) => 10 + i * (size + 5)) // 100 is where the first dot appears. 25 is the distance between dots
+                                    .attr("r", 7)
+                                    .style("fill", d => color_c(d))
+
+                                // Add labels beside legend dots
+                                svg_bubbles.selectAll("mylabels")
+                                    .data(allgroups)
+                                    .enter()
+                                    .append("text")
+                                    .attr("x", 10 + size * .8)
+                                    .attr("y", (d, i) => i * (size + 5) + (size / 2)) // 100 is where the first dot appears. 25 is the distance between dots
+                                    .style("fill", d => color_c(d))
+                                    .text(d => d)
+                                    .attr("text-anchor", "left")
+                                    .style("alignment-baseline", "middle")
                             })
-                            // Promise.all([
-                            //     d3.json("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world.geojson"),
-                            //     d3.csv("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world_population.csv", function (d) {
-                            //         data.set(d.code, +d.pop)
-                            //     })
-                            // ]).then(function (loadData) {
-                            //     let topo = loadData[0]
 
-                            //     // Draw the map
-                            //     mappery.append("g")
-                            //         .selectAll("path")
-                            //         .data(topo.features)
-                            //         .join("path")
-                            //         // draw each country
-                            //         .attr("d", d3.geoPath()
-                            //             .projection(projection)
-                            //         )
-                            //         // set the color of each country
-                            //         .attr("fill", function (d) {
-                            //             d.total = data.get(d.id) || 0;
-                            //             return colorScale(d.total);
-                            //         })
-                            // })
                         </script>
                     </div> <!-- section title -->
                 </div>
             </div> <!-- row -->
-            <div class="row">
-                <div class="col-lg-4 col-md-6">
-                    <div class="single_features text-center mt-60 wow fadeInUp" data-wow-duration="1.3s"
-                        data-wow-delay="0.2s">
-                        <i class="lni lni-briefcase"></i>
-                        <h4 class="features_title">Digital Business</h4>
-                        <p>Lorem ipsum dolor sit amet, sadipscing elitr, sed diam nonumy eirmod tempor invidunt labor
-                            dolore magna .</p>
-                    </div> <!-- single features -->
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="single_features text-center mt-60 wow fadeInUp" data-wow-duration="1.3s"
-                        data-wow-delay="0.3s">
-                        <i class="lni lni-clipboard"></i>
-                        <h4 class="features_title">Startup Business</h4>
-                        <p>Lorem ipsum dolor sit amet, sadipscing elitr, sed diam nonumy eirmod tempor invidunt labor
-                            dolore magna .</p>
-                    </div> <!-- single features -->
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="single_features text-center mt-60 wow fadeInUp" data-wow-duration="1.3s"
-                        data-wow-delay="0.4s">
-                        <i class="lni lni-target-revenue"></i>
-                        <h4 class="features_title">Business Investment</h4>
-                        <p>Lorem ipsum dolor sit amet, sadipscing elitr, sed diam nonumy eirmod tempor invidunt labor
-                            dolore magna .</p>
-                    </div> <!-- single features -->
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="single_features text-center mt-60 wow fadeInUp" data-wow-duration="1.3s"
-                        data-wow-delay="0.2s">
-                        <i class="lni lni-invention"></i>
-                        <h4 class="features_title">Business Solutions</h4>
-                        <p>Lorem ipsum dolor sit amet, sadipscing elitr, sed diam nonumy eirmod tempor invidunt labor
-                            dolore magna .</p>
-                    </div> <!-- single features -->
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="single_features text-center mt-60 wow fadeInUp" data-wow-duration="1.3s"
-                        data-wow-delay="0.3s">
-                        <i class="lni lni-bar-chart"></i>
-                        <h4 class="features_title">Business Analysis</h4>
-                        <p>Lorem ipsum dolor sit amet, sadipscing elitr, sed diam nonumy eirmod tempor invidunt labor
-                            dolore magna .</p>
-                    </div> <!-- single features -->
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="single_features text-center mt-60 wow fadeInUp" data-wow-duration="1.3s"
-                        data-wow-delay="0.4s">
-                        <i class="lni lni-calendar"></i>
-                        <h4 class="features_title">Consulting Business</h4>
-                        <p>Lorem ipsum dolor sit amet, sadipscing elitr, sed diam nonumy eirmod tempor invidunt labor
-                            dolore magna .</p>
-                    </div> <!-- single features -->
-                </div>
-            </div> <!-- row -->
+
         </div> <!-- container -->
     </section>
 
@@ -575,159 +508,98 @@
     <!--====== PORTFOLIO PART START ======-->
 
     <section id="portfolio" class="portfolio_area pt-120">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-6">
-                    <div class="section_title text-center pb-60">
-                        <h4 class="title wow fadeInUp" data-wow-duration="1.3s" data-wow-delay="0.2s">Our Portfolio</h4>
-                        <p class="wow fadeInUp" data-wow-duration="1.3s" data-wow-delay="0.4s">Lorem ipsum dolor sit
-                            amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt labor dolore.</p>
-                    </div> <!-- section title -->
-                </div>
-            </div> <!-- row -->
-        </div> <!-- container -->
-        <div class="portfolio_wrapper d-flex flex-wrap">
-            <div class="single_portfolio wow fadeInUp" data-wow-duration="1.3s" data-wow-delay="0.2s">
-                <img src="assets/images/portfolio-1.jpg" alt="portfolio">
-                <div class="portfolio_content">
-                    <ul class="meta">
-                        <li><a href="#0"><i class="lni lni-link"></i></a></li>
-                    </ul>
-                    <h5 class="portfolio_title">Logo And Branding</h5>
-                </div> <!-- Single portfolio -->
-            </div> <!-- portfolio wrapper -->
-            <div class="single_portfolio wow fadeInUp" data-wow-duration="1.3s" data-wow-delay="0.3s">
-                <img src="assets/images/portfolio-2.jpg" alt="portfolio">
-                <div class="portfolio_content">
-                    <ul class="meta">
-                        <li><a href="#0"><i class="lni lni-link"></i></a></li>
-                    </ul>
-                    <h5 class="portfolio_title">Bootstrap 5 Project</h5>
-                </div> <!-- Single portfolio -->
-            </div> <!-- portfolio wrapper -->
-            <div class="single_portfolio wow fadeInUp" data-wow-duration="1.3s" data-wow-delay="0.4s">
-                <img src="assets/images/portfolio-3.jpg" alt="portfolio">
-                <div class="portfolio_content">
-                    <ul class="meta">
-                        <li><a href="#0"><i class="lni lni-link"></i></a></li>
-                    </ul>
-                    <h5 class="portfolio_title">Creative Projects</h5>
-                </div> <!-- Single portfolio -->
-            </div> <!-- portfolio wrapper -->
-            <div class="single_portfolio wow fadeInUp" data-wow-duration="1.3s" data-wow-delay="0.5s">
-                <img src="assets/images/portfolio-4.jpg" alt="portfolio">
-                <div class="portfolio_content">
-                    <ul class="meta">
-                        <li><a href="#0"><i class="lni lni-link"></i></a></li>
-                    </ul>
-                    <h5 class="portfolio_title">UI/UX Projects</h5>
-                </div> <!-- Single portfolio -->
-            </div> <!-- portfolio wrapper -->
-            <div class="single_portfolio wow fadeInUp" data-wow-duration="1.3s" data-wow-delay="0.2s">
-                <img src="assets/images/portfolio-5.jpg" alt="portfolio">
-                <div class="portfolio_content">
-                    <ul class="meta">
-                        <li><a href="#0"><i class="lni lni-link"></i></a></li>
-                    </ul>
-                    <h5 class="portfolio_title">App Development</h5>
-                </div> <!-- Single portfolio -->
-            </div> <!-- portfolio wrapper -->
-            <div class="single_portfolio wow fadeInUp" data-wow-duration="1.3s" data-wow-delay="0.3s">
-                <img src="assets/images/portfolio-6.jpg" alt="portfolio">
-                <div class="portfolio_content">
-                    <ul class="meta">
-                        <li><a href="#0"><i class="lni lni-link"></i></a></li>
-                    </ul>
-                    <h5 class="portfolio_title">Web Development</h5>
-                </div> <!-- Single portfolio -->
-            </div> <!-- portfolio wrapper -->
-            <div class="single_portfolio wow fadeInUp" data-wow-duration="1.3s" data-wow-delay="0.4s">
-                <img src="assets/images/portfolio-7.jpg" alt="portfolio">
-                <div class="portfolio_content">
-                    <ul class="meta">
-                        <li><a href="#0"><i class="lni lni-link"></i></a></li>
-                    </ul>
-                    <h5 class="portfolio_title">Business Card Design</h5>
-                </div> <!-- Single portfolio -->
-            </div> <!-- portfolio wrapper -->
-            <div class="single_portfolio wow fadeInUp" data-wow-duration="1.3s" data-wow-delay="0.5s">
-                <img src="assets/images/portfolio-8.jpg" alt="portfolio">
-                <div class="portfolio_content">
-                    <ul class="meta">
-                        <li><a href="#0"><i class="lni lni-link"></i></a></li>
-                    </ul>
-                    <h5 class="portfolio_title">Consulting Business</h5>
-                </div> <!-- Single portfolio -->
-            </div> <!-- portfolio wrapper -->
-        </div> <!-- row -->
+        <div class="about_area">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-6">
+                        <div class="section_title text-center pb-60">
+                            <h4 class="title wow fadeInUp" data-wow-duration="1.3s" data-wow-delay="0.2s">Our Portfolio
+                            </h4>
+                            <p class="wow fadeInUp" data-wow-duration="1.3s" data-wow-delay="0.4s">Lorem ipsum dolor sit
+                                amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt labor dolore.
+                            </p>
+                            <svg id="mapping" width="600" height="300"></svg>
+                            <script>
+                                // The svg
+                                const mappery = d3.select("#mapping"),
+                                    map_width = +svg.attr("width"),
+                                    map_height = +svg.attr("height");
+
+                                // Map and projection
+                                const path = d3.geoPath();
+                                const projection = d3.geoMercator()
+                                    .scale(70)
+                                    .center([0, 20])
+                                    .translate([map_width / 2 + 300, map_height / 2 + 200]);
+
+                                // Data and color scale
+                                let data = new Map()
+                                const colorScale = d3.scaleThreshold()
+                                    .domain([100000, 1000000, 10000000, 30000000, 100000000, 500000000])
+                                    .range(d3.schemeBlues[7]);
+
+                                Promise.all([
+                                    d3.json("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world.geojson"),
+                                    d3.csv("https://raw.githubusercontent.com/parkchrishj/Crop-Production/main/Crop%20Production%20MP2/assets/Crops/Prod_Quantity_Crops.csv", function (d) {
+                                        data.set(d.iso3, +d.prod_avg_value)
+                                    })
+                                ]).then(function (loadData) {
+                                    let topo = loadData[0]
+                                    //Draw the map
+                                    let mouseOver_m = function (d) {
+                                        d3.selectAll(".Country")
+                                            .transition()
+                                            .duration(200)
+                                            .style("opacity", .5)
+                                        d3.select(this)
+                                            .transition()
+                                            .duration(200)
+                                            .style("opacity", 1)
+                                            .style("stroke", "black")
+                                    }
+
+                                    let mouseLeave_m = function (d) {
+                                        d3.selectAll(".Country")
+                                            .transition()
+                                            .duration(200)
+                                            .style("opacity", .8)
+                                        d3.select(this)
+                                            .transition()
+                                            .duration(200)
+                                            .style("stroke", "transparent")
+                                    }
+
+                                    mappery.append("g")
+                                        .selectAll("path")
+                                        .data(topo.features)
+                                        .join("path")
+                                        // draw each country
+                                        .attr("d", d3.geoPath()
+                                            .projection(projection)
+                                        )
+                                        // set the color of each country
+                                        .attr("fill", function (d) {
+                                            // if (d.year == "2010") {
+                                            d.total = data.get(d.id) || 0;
+                                            return colorScale(d.total);
+                                            // }
+                                        })
+                                        .style("stroke", "transparent")
+                                        .attr("class", function (d) { return "Country" })
+                                        .style("opacity", .8)
+                                        .on("mouseover", mouseOver_m)
+                                        .on("mouseleave", mouseLeave_m)
+                                })
+                            </script>
+                        </div> <!-- section title -->
+                    </div>
+                </div> <!-- row -->
+            </div> <!-- container -->
+
+        </div>
     </section>
 
     <!--====== PORTFOLIO PART ENDS ======-->
-
-    <!--====== PRICING PART START ======-->
-
-    <section id="pricing" class="pricing_area pt-120 pb-130">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-6">
-                    <div class="section_title text-center pb-25">
-                        <h4 class="title wow fadeInUp" data-wow-duration="1.3s" data-wow-delay="0.2s">Pricing Plans</h4>
-                        <p class="wow fadeInUp" data-wow-duration="1.3s" data-wow-delay="0.4s">Lorem ipsum dolor sit
-                            amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt labor dolore.</p>
-                    </div> <!-- section title -->
-                </div>
-            </div> <!-- row -->
-            <div class="row justify-content-center">
-                <div class="col-lg-4 col-md-8 col-sm-10">
-                    <div class="single_pricing text-center mt-30 wow fadeInUp" data-wow-duration="1.3s"
-                        data-wow-delay="0.2s">
-                        <h4 class="pricing_title">Startup</h4>
-                        <span class="price">$240</span>
-                        <ul class="pricing_list">
-                            <li>Startup Business</li>
-                            <li>Business Consulting</li>
-                            <li>Business Analysis</li>
-                            <li>Corporate Business</li>
-                            <li>Business Investment</li>
-                        </ul>
-                        <a href="#0" class="mian-btn">Order Now</a>
-                    </div> <!-- single pricing -->
-                </div>
-                <div class="col-lg-4 col-md-8 col-sm-10">
-                    <div class="single_pricing text-center mt-30 active wow fadeInUp" data-wow-duration="1.3s"
-                        data-wow-delay="0.3s">
-                        <h4 class="pricing_title">Agency</h4>
-                        <span class="price">$340</span>
-                        <ul class="pricing_list">
-                            <li>Startup Business</li>
-                            <li>Business Consulting</li>
-                            <li>Business Analysis</li>
-                            <li>Corporate Business</li>
-                            <li>Business Investment</li>
-                        </ul>
-                        <a href="#0" class="mian-btn">Order Now</a>
-                    </div> <!-- single pricing -->
-                </div>
-                <div class="col-lg-4 col-md-8 col-sm-10">
-                    <div class="single_pricing text-center mt-30 wow fadeInUp" data-wow-duration="1.3s"
-                        data-wow-delay="0.4s">
-                        <h4 class="pricing_title">Enterprise</h4>
-                        <span class="price">$440</span>
-                        <ul class="pricing_list">
-                            <li>Startup Business</li>
-                            <li>Business Consulting</li>
-                            <li>Business Analysis</li>
-                            <li>Corporate Business</li>
-                            <li>Business Investment</li>
-                        </ul>
-                        <a href="#0" class="mian-btn">Order Now</a>
-                    </div> <!-- single pricing -->
-                </div>
-            </div> <!-- row -->
-        </div> <!-- container -->
-    </section>
-
-    <!--====== PRICING PART ENDS ======-->
 
     <!--====== TEAM PART START ======-->
 
@@ -739,56 +611,215 @@
                         <h4 class="title wow fadeInUp" data-wow-duration="1.3s" data-wow-delay="0.2s">Meet The Team</h4>
                         <p class="wow fadeInUp" data-wow-duration="1.3s" data-wow-delay="0.4s">Lorem ipsum dolor sit
                             amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt labor dolore.</p>
+                        <div class="wow fadeInUp" data-wow-duration="1.3s" data-wow-delay="0.4s"
+                            id="scatterplot_crop_yield"></div>
+                        <!-- A bit of CSS: change stroke color of circle on hover (white -> black) -->
+                        <style>
+                            .bubbles {
+                                stroke-width: 1px;
+                                stroke: black;
+                                opacity: .8
+                            }
+
+                            .bubbles:hover {
+                                stroke: orange;
+                            }
+                        </style>
+                        <script>
+                            // set the dimensions and margins of the graph
+                            // const margin = { top: 40, right: 150, bottom: 60, left: 60 },
+                            //   width = 900 - margin.left - margin.right,
+                            //   height = 420 - margin.top - margin.bottom;
+                            const svg_y = d3.select("#scatterplot_crop_yield")
+                                .append("svg")
+                                .attr("width", width + margin.left + margin.right)
+                                .attr("height", height + margin.top + margin.bottom)
+                                .append("g")
+                                .attr("transform", `translate(${margin.left},${margin.top})`);
+                            d3.csv("https://raw.githubusercontent.com/parkchrishj/Crop-Production/main/Crop%20Production%20MP2/assets/Crops/Crop_Yield.csv")
+                                .then(function (data) {
+                                    // x axis
+                                    const x = d3.scaleLinear().domain([0, 80000]).range([0, width - 200]);
+                                    svg_y.append("g")
+                                        .attr("transform", `translate(0, ${height})`)
+                                        .call(d3.axisBottom(x).ticks(8));
+                                    // const x = d3.scaleLog().domain([0, 1000000]).range([0, width]);
+                                    // svg.append("g")
+                                    //     .attr("transform", `translate(0, ${height})`)
+                                    //     .call(d3.axisBottom(x).ticks(4).tickFormat(d3.format("~s")));
+                                    svg_y.append("text")
+                                        .attr("text-anchor", "end")
+                                        .attr("x", width - 200)
+                                        .attr("y", height + 50)
+                                        .text("Agricultural Pesticides Used (Tonnes)");
+                                    // y axis
+                                    const y = d3.scaleLinear().domain([0, 10000000]).range([height, 0]);
+                                    svg_y.append("g")
+                                        .call(d3.axisLeft(y).ticks(10));
+                                    svg_y.append("text")
+                                        .attr("text-anchor", "end")
+                                        .attr("x", 0)
+                                        .attr("y", -20)
+                                        .text("Agricultural Fertilizers Used (Tonnes)")
+                                        .attr("text-anchor", "start")
+                                    // Add a scale for bubble size
+                                    const z = d3.scaleSqrt()
+                                        .domain([10000, 500000000])
+                                        .range([2, 50]);
+                                    // Add a scale for bubble color
+                                    allgroups = new Set(data.map(d => d.Income_Group))//= ["High-income economies", "Upper-middle-income economies", "Lower-middle-income economies", "Low income economies"]
+                                    // yeargroups = new Set(data.map(d => d.Year).sort(d3.ascending))
+                                    // add the options to the button
+                                    const myColor = d3.scaleOrdinal()
+                                        .domain(allgroups)
+                                        .range(d3.schemeSet1);
+                                    // ---------------------------//
+                                    //      TOOLTIP               //
+                                    // ---------------------------//
+
+                                    // -1- Create a tooltip div that is hidden by default:
+                                    var tooltip_y = d3.select("#scatterplot_crop_yield")
+                                        .append("div")
+                                        .style("opacity", 0)
+                                        .attr("class", "tooltip")
+                                        .style("background-color", "black")
+                                        .style("border-radius", "5px")
+                                        .style("padding", "10px")
+                                        .style("color", "white")
+
+                                    // -2- Create 3 functions to show / update (when mouse move but stay on same circle) / hide the tooltip
+                                    const showTooltip = function (event, d) {
+                                        tooltip_y
+                                            .transition()
+                                            .duration(200)
+                                        tooltip_y
+                                            .style("opacity", 1)
+                                            .html("Country: " + d.country)
+                                        //         .style("left", (event.x) / 2 + "px")
+                                        //         .style("top", (event.y) / 2 - 50 + "px")
+                                        // }
+                                        // const moveTooltip = function (event, d) {
+                                        //     tooltip_y
+                                        //         .style("left", (event.x) / 2 + width / 2 + "px")
+                                        //         .style("top", (event.y) / 2 + "px")
+                                        // }
+                                        // const hideTooltip = function (event, d) {
+                                        //     tooltip_y
+                                        //         .transition()
+                                        //         .duration(200)
+                                        //         .style("opacity", 0)
+                                    }
+
+                                    // ---------------------------//
+                                    //       HIGHLIGHT GROUP      //
+                                    // ---------------------------//
+                                    // What to do when one group is hovered
+                                    const highlight = function (event, d) {
+                                        // reduce opacity of all groups
+                                        d3.selectAll(".bubbles").style("opacity", 1)
+                                        // expect the one that is hovered
+                                        // d3.selectAll("." + d).style("opacity", 1)
+                                    }
+
+                                    // And when it is not hovered anymore
+                                    const noHighlight = function (event, d) {
+                                        d3.selectAll(".bubbles").style("opacity", 1)
+                                    }
+
+
+                                    // ---------------------------//
+                                    //       CIRCLES              //
+                                    // ---------------------------//
+                                    const dotto = svg_y.append('g')
+                                        .selectAll("dot")
+                                        .data(data)
+                                        .join("circle")
+                                        .attr("class", function (d) { return "bubbles " + d.Income_Group })
+                                        .attr("cx", d => x(d.Pesticide_x))
+                                        .attr("cy", d => y(d.Fertilizers_y))
+                                        .attr("r", d => z(d.Yield_value))
+                                        .style("fill", d => myColor(d.Income_Group))
+                                        // -3- Trigger the functions for hover
+                                        .on("mouseover", showTooltip)
+                                    // .on("mousemove", moveTooltip)
+                                    // .on("mouseleave", hideTooltip)
+                                    // ---------------------------//
+                                    //       LEGEND              //
+                                    // ---------------------------//
+
+                                    // Add legend: circles
+                                    const valuesToShow = [1000000, 10000000, 100000000]
+                                    const xCircle = 690
+                                    const xLabel = 760
+                                    svg_y
+                                        .selectAll("legend")
+                                        .data(valuesToShow)
+                                        .join("circle")
+                                        .attr("cx", xCircle)
+                                        .attr("cy", d => height - 100 - z(d))
+                                        .attr("r", d => z(d))
+                                        .style("fill", "none")
+                                        .attr("stroke", "black")
+
+                                    // Add legend: segments
+                                    svg_y
+                                        .selectAll("legend")
+                                        .data(valuesToShow)
+                                        .join("line")
+                                        .attr('x1', d => xCircle + z(d))
+                                        .attr('x2', xLabel)
+                                        .attr('y1', d => height - 100 - z(d))
+                                        .attr('y2', d => height - 100 - z(d))
+                                        .attr('stroke', 'black')
+                                        .style('stroke-dasharray', ('2,2'))
+
+                                    // Add legend: labels
+                                    svg_y
+                                        .selectAll("legend")
+                                        .data(valuesToShow)
+                                        .join("text")
+                                        .attr('x', xLabel)
+                                        .attr('y', d => height - 100 - z(d))
+                                        .text(d => d / 1000000)
+                                        .style("font-size", 10)
+                                        .attr('alignment-baseline', 'middle')
+
+                                    // Legend title
+                                    svg_y.append("text")
+                                        .attr('x', xCircle)
+                                        .attr("y", height - 100 + 30)
+                                        .text("Hectogram / Hectare (Hg/Ha)")
+                                        .attr("text-anchor", "middle")
+
+                                    // Add one dot in the legend for each name.
+                                    const size = 20
+                                    svg_y.selectAll("myrect")
+                                        .data(allgroups)
+                                        .join("circle")
+                                        .attr("cx", 530)
+                                        .attr("cy", (d, i) => i * (size + 5)) // 100 is where the first dot appears. 25 is the distance between dots
+                                        .attr("r", 7)
+                                        .style("fill", d => myColor(d))
+
+                                    // Add labels beside legend dots
+                                    svg_y.selectAll("mylabels")
+                                        .data(allgroups)
+                                        .enter()
+                                        .append("text")
+                                        .attr("x", 530 + size * .8)
+                                        .attr("y", (d, i) => i * (size + 5) + (size / 2) - 10) // 100 is where the first dot appears. 25 is the distance between dots
+                                        .style("fill", d => myColor(d))
+                                        .text(d => d)
+                                        .attr("text-anchor", "left")
+                                        .style("alignment-baseline", "middle")
+                                })
+
+                        </script>
                     </div> <!-- section title -->
                 </div>
             </div> <!-- row -->
-            <div class="row justify-content-center team_active">
-                <div class="col-lg-4 col-md-8 col-sm-10">
-                    <div class="single_team mt-30 wow fadeInUp" data-wow-duration="1.3s" data-wow-delay="0.2s">
-                        <img src="assets/images/team-1.jpg" alt="team">
 
-                        <div class="team_content">
-                            <h4 class="team_name"><a href="#0">Tom Hanks.</a></h4>
-                            <p>Head Of Ideas</p>
-                            <ul class="social">
-                                <li><a href="#0"><i class="lni lni-facebook-filled"></i></a></li>
-                                <li><a href="#0"><i class="lni lni-twitter-original"></i></a></li>
-                                <li><a href="#0"><i class="lni lni-linkedin-original"></i></a></li>
-                            </ul>
-                        </div>
-                    </div> <!-- single team -->
-                </div>
-                <div class="col-lg-4 col-md-8 col-sm-10">
-                    <div class="single_team mt-30 wow fadeInUp" data-wow-duration="1.3s" data-wow-delay="0.3s">
-                        <img src="assets/images/team-2.jpg" alt="team">
-
-                        <div class="team_content">
-                            <h4 class="team_name"><a href="#0">Jennifer L.</a></h4>
-                            <p>UX Designer</p>
-                            <ul class="social">
-                                <li><a href="#0"><i class="lni lni-facebook-filled"></i></a></li>
-                                <li><a href="#0"><i class="lni lni-twitter-original"></i></a></li>
-                                <li><a href="#0"><i class="lni lni-linkedin-original"></i></a></li>
-                            </ul>
-                        </div>
-                    </div> <!-- single team -->
-                </div>
-                <div class="col-lg-4 col-md-8 col-sm-10">
-                    <div class="single_team mt-30 wow fadeInUp" data-wow-duration="1.3s" data-wow-delay="0.4s">
-                        <img src="assets/images/team-3.jpg" alt="team">
-
-                        <div class="team_content">
-                            <h4 class="team_name"><a href="#0">Rob Percy</a></h4>
-                            <p>Creative Designer</p>
-                            <ul class="social">
-                                <li><a href="#0"><i class="lni lni-facebook-filled"></i></a></li>
-                                <li><a href="#0"><i class="lni lni-twitter-original"></i></a></li>
-                                <li><a href="#0"><i class="lni lni-linkedin-original"></i></a></li>
-                            </ul>
-                        </div>
-                    </div> <!-- single team -->
-                </div>
-            </div> <!-- row -->
+        </div> <!-- row -->
         </div> <!-- container -->
     </section>
 
