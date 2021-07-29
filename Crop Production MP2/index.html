@@ -99,12 +99,6 @@
                                     <li class="nav-item">
                                         <a class="page-scroll" href="#team">Team</a>
                                     </li>
-                                    <li class="nav-item">
-                                        <a class="page-scroll" href="#blog">Blog</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="page-scroll" href="#contact">Contact</a>
-                                    </li>
                                 </ul>
                             </div> <!-- navbar collapse -->
                         </nav> <!-- navbar -->
@@ -115,7 +109,7 @@
 
         <div class="header_hero">
             <div class="single_hero bg_cover d-flex align-items-center"
-                style="background-image: url(assets/images/hero.jpg)">
+                style="background-image: url(assets/images/crops_image.jpeg)">
                 <div class="container">
                     <div class="row justify-content-center">
                         <div class="col-lg-8 col-md-10">
@@ -123,8 +117,9 @@
                                 <h2 class="hero_title wow fadeInUp" data-wow-duration="1.3s" data-wow-delay="0.2s">Crop
                                     Production with </br> Agricultural Fertilizers and Pesticides</h2>
                                 <p class="wow fadeInUp" data-wow-duration="1.3s" data-wow-delay="0.5s">The Narrative
-                                    Visualization will explore the effects of agricultural chemical additives <br
-                                        class="d-none d-xl-block"> on the production rate of crops.</p>
+                                    Visualization will explore the effects of agricultural chemical additives, <br
+                                        class="d-none d-xl-block"> such as Fertilizers and Pesticides, on the production
+                                    rate of crops.</p>
                                 <a href="#about" class="main-btn wow fadeInUp" data-wow-duration="1.3s"
                                     data-wow-delay="0.8s">Explore</a>
                             </div> <!-- hero content -->
@@ -176,7 +171,7 @@
                                 d3.csv("https://raw.githubusercontent.com/parkchrishj/Crop-Production/main/Crop%20Production%20MP2/assets/Crops/Crop_Production.csv")
                                     .then(function (data) {
                                         // x axis
-                                        const x = d3.scaleLinear().domain([0, 80000]).range([0, width - 200]);
+                                        const x = d3.scaleLinear().domain([0, 70000]).range([0, width - 200]);
                                         svg.append("g")
                                             .attr("transform", `translate(0, ${height})`)
                                             .call(d3.axisBottom(x).ticks(8));
@@ -606,7 +601,7 @@
     <section id="team" class="team_area pt-120 pb-130">
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-lg-6">
+                <div class="col-lg-10">
                     <div class="section_title text-center pb-25">
                         <h4 class="title wow fadeInUp" data-wow-duration="1.3s" data-wow-delay="0.2s">Meet The Team</h4>
                         <p class="wow fadeInUp" data-wow-duration="1.3s" data-wow-delay="0.4s">Lorem ipsum dolor sit
@@ -639,7 +634,7 @@
                             d3.csv("https://raw.githubusercontent.com/parkchrishj/Crop-Production/main/Crop%20Production%20MP2/assets/Crops/Crop_Yield.csv")
                                 .then(function (data) {
                                     // x axis
-                                    const x = d3.scaleLinear().domain([0, 80000]).range([0, width - 200]);
+                                    const x = d3.scaleLinear().domain([0, 70000]).range([0, width - 200]);
                                     svg_y.append("g")
                                         .attr("transform", `translate(0, ${height})`)
                                         .call(d3.axisBottom(x).ticks(8));
@@ -695,19 +690,6 @@
                                         tooltip_y
                                             .style("opacity", 1)
                                             .html("Country: " + d.country)
-                                        //         .style("left", (event.x) / 2 + "px")
-                                        //         .style("top", (event.y) / 2 - 50 + "px")
-                                        // }
-                                        // const moveTooltip = function (event, d) {
-                                        //     tooltip_y
-                                        //         .style("left", (event.x) / 2 + width / 2 + "px")
-                                        //         .style("top", (event.y) / 2 + "px")
-                                        // }
-                                        // const hideTooltip = function (event, d) {
-                                        //     tooltip_y
-                                        //         .transition()
-                                        //         .duration(200)
-                                        //         .style("opacity", 0)
                                     }
 
                                     // ---------------------------//
@@ -717,8 +699,6 @@
                                     const highlight = function (event, d) {
                                         // reduce opacity of all groups
                                         d3.selectAll(".bubbles").style("opacity", 1)
-                                        // expect the one that is hovered
-                                        // d3.selectAll("." + d).style("opacity", 1)
                                     }
 
                                     // And when it is not hovered anymore
@@ -741,8 +721,7 @@
                                         .style("fill", d => myColor(d.Income_Group))
                                         // -3- Trigger the functions for hover
                                         .on("mouseover", showTooltip)
-                                    // .on("mousemove", moveTooltip)
-                                    // .on("mouseleave", hideTooltip)
+
                                     // ---------------------------//
                                     //       LEGEND              //
                                     // ---------------------------//
@@ -828,7 +807,7 @@
     <!--====== TESTIMONIAL PART START ======-->
 
     <section id="testimonial" class="testimonial_area pt-130 pb-130 bg_cover"
-        style="background-image: url(assets/images/testimonial.jpg)">
+        style="background-image: url(assets/images/end_crop.jpeg)">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-8">
@@ -869,159 +848,6 @@
     </section>
 
     <!--====== TESTIMONIAL PART ENDS ======-->
-
-    <!--====== BLOG PART START ======-->
-
-    <section id="blog" class="blog_area pt-120 pb-130">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-6">
-                    <div class="section_title text-center pb-25">
-                        <h4 class="title wow fadeInUp" data-wow-duration="1.3s" data-wow-delay="0.2s">Recent Blog</h4>
-                        <p class="wow fadeInUp" data-wow-duration="1.3s" data-wow-delay="0.4s">Lorem ipsum dolor sit
-                            amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt labor dolore.</p>
-                    </div> <!-- section title -->
-                </div>
-            </div> <!-- row -->
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="single_blog mt-30 wow fadeInUp" data-wow-duration="1.3s" data-wow-delay="0.2s">
-                        <div class="blog_image">
-                            <img src="assets/images/blog-1.jpg" alt="blog">
-                        </div>
-                        <div class="blog_content">
-                            <h3 class="blog_title"><a href="#0">Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
-                                    sed diam nonumy eirmod tempor .</a></h3>
-                            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
-                                invidunt labor dolore.Lorem ipsum dolor sit amet, conse sadipscing elitr, sed diam
-                                nonumy eirmod tempor invidunt labor dolore magna .Lorem ipsum dolor sit amet, consetetur
-                                sadipscing elit.</p>
-                        </div>
-                    </div> <!-- single blog -->
-                </div>
-                <div class="col-lg-6">
-                    <div class="single_blog blog_2 d-sm-flex mt-30 wow fadeInUp" data-wow-duration="1.3s"
-                        data-wow-delay="0.2s">
-                        <div class="blog_image">
-                            <img src="assets/images/blog-2.jpg" alt="blog">
-                        </div>
-                        <div class="blog_content media-body">
-                            <h3 class="blog_title"><a href="#0">Lorem ipsum dolor sit amet, consetetur sadipscing .</a>
-                            </h3>
-                            <p>Lorem ipsum dolor sit consetetur sadipscing elitr, sed diam.</p>
-                            <a href="#0" class="more">Read More</a>
-                        </div>
-                    </div> <!-- single blog -->
-
-                    <div class="single_blog blog_2 d-sm-flex mt-30 wow fadeInUp" data-wow-duration="1.3s"
-                        data-wow-delay="0.3s">
-                        <div class="blog_image">
-                            <img src="assets/images/blog-3.jpg" alt="blog">
-                        </div>
-                        <div class="blog_content media-body">
-                            <h3 class="blog_title"><a href="#0">Lorem ipsum dolor sit amet, consetetur sadipscing .</a>
-                            </h3>
-                            <p>Lorem ipsum dolor sit consetetur sadipscing elitr, sed diam.</p>
-                            <a href="#0" class="more">Read More</a>
-                        </div>
-                    </div> <!-- single blog -->
-
-                    <div class="single_blog blog_2 d-sm-flex mt-30 wow fadeInUp" data-wow-duration="1.3s"
-                        data-wow-delay="0.4s">
-                        <div class="blog_image">
-                            <img src="assets/images/blog-4.jpg" alt="blog">
-                        </div>
-                        <div class="blog_content media-body">
-                            <h3 class="blog_title"><a href="#0">Lorem ipsum dolor sit amet, consetetur sadipscing .</a>
-                            </h3>
-                            <p>Lorem ipsum dolor sit consetetur sadipscing elitr, sed diam.</p>
-                            <a href="#0" class="more">Read More</a>
-                        </div>
-                    </div> <!-- single blog -->
-                </div>
-            </div> <!-- row -->
-        </div> <!-- container -->
-    </section>
-
-    <!--====== BLOG PART ENDS ======-->
-
-    <!--====== CONTACT PART START ======-->
-
-    <section id="contact" class="contact_area bg_cover pt-120 pb-130"
-        style="background-image: url(assets/images/contact_bg.jpg)">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-6">
-                    <div class="section_title section_title_2 text-center pb-25">
-                        <h4 class="title wow fadeInUp" data-wow-duration="1.3s" data-wow-delay="0.2s">Contact Us</h4>
-                        <p class="wow fadeInUp" data-wow-duration="1.3s" data-wow-delay="0.4s">Lorem ipsum dolor sit
-                            amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt labor dolore.</p>
-                    </div> <!-- section title -->
-                </div>
-            </div> <!-- row -->
-
-            <form id="contact-form" action="assets/contact.php" method="post" class="wow fadeInUp"
-                data-wow-duration="1.3s" data-wow-delay="0.4s">
-                <div class="row">
-                    <div class="col-lg-6">
-                        <div class="single_form">
-                            <input type="text" placeholder="Name" name="name" id="name" required>
-                        </div> <!-- single form -->
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="single_form">
-                            <input type="email" placeholder="Email" name="email" id="email" required>
-                        </div> <!-- single form -->
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="single_form">
-                            <input type="text" placeholder="Phone Number" name="number" id="number" required>
-                        </div> <!-- single form -->
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="single_form">
-                            <input type="text" placeholder="Subject" name="subject" id="subject" required>
-                        </div> <!-- single form -->
-                    </div>
-                    <div class="col-lg-12">
-                        <div class="single_form">
-                            <textarea placeholder="Message" name="message" id="message" required></textarea>
-                        </div> <!-- single form -->
-                    </div>
-
-                    <p class="form-message"></p>
-
-                    <div class="col-lg-12">
-                        <div class="single_form text-center">
-                            <button class="main-btn" type="submit">SUBMIT</button>
-                        </div> <!-- single form -->
-                    </div>
-                </div> <!-- row -->
-            </form>
-        </div> <!-- container -->
-    </section>
-
-    <!--====== CONTACT PART ENDS ======-->
-
-    <!--====== FOOTER PART START ======-->
-
-    <footer id="footer" class="footer_area">
-        <div class="container">
-            <div class="footer_wrapper text-center d-lg-flex align-items-center justify-content-between">
-                <p class="credit">Designed and Developed by <a href="https://uideck.com" rel="nofollow">UIdeck</a></p>
-                <div class="footer_social pt-15">
-                    <ul>
-                        <li><a href="#0"><i class="lni lni-facebook-original"></i></a></li>
-                        <li><a href="#0"><i class="lni lni-twitter-original"></i></a></li>
-                        <li><a href="#0"><i class="lni lni-instagram-original"></i></a></li>
-                        <li><a href="#0"><i class="lni lni-linkedin-original"></i></a></li>
-                    </ul>
-                </div> <!-- footer social -->
-            </div> <!-- footer wrapper -->
-        </div> <!-- container -->
-    </footer>
-
-    <!--====== FOOTER PART ENDS ======-->
 
     <!--====== BACK TOP TOP PART START ======-->
 
