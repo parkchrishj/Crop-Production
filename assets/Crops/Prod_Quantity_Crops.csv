@@ -1,0 +1,150 @@
+country,income_group,iso3,prod_avg_value
+Argentina,High-income economies,ARG,12420905.88
+Antigua and Barbuda,High-income economies,ATG,2643.377778
+Australia,High-income economies,AUS,10735779.71
+Austria,High-income economies,AUT,1657363.927
+Belgium,High-income economies,BEL,2302658.073
+Bahamas,High-income economies,BHS,26106.87037
+Barbados,High-income economies,BRB,55272.57778
+Canada,High-income economies,CAN,12266593.5
+Switzerland,High-income economies,CHE,621474.8611
+Chile,High-income economies,CHL,2181341.087
+Czechia,High-income economies,CZE,2017243.618
+Germany,High-income economies,DEU,14762137.68
+Denmark,High-income economies,DNK,2306316.528
+Spain,High-income economies,ESP,9248738.151
+Estonia,High-income economies,EST,262504.6026
+Finland,High-income economies,FIN,1019793.394
+France,High-income economies,FRA,17570531.24
+United Kingdom of Great Britain and Northern Ireland,High-income economies,GBR,7770451.622
+Greece,High-income economies,GRC,2070485.524
+Croatia,High-income economies,HRV,814751.5159
+Hungary,High-income economies,HUN,3070788.118
+Ireland,High-income economies,IRL,633060.3289
+Israel,High-income economies,ISR,675969.1293
+Italy,High-income economies,ITA,8531432.341
+Japan,High-income economies,JPN,5231546.278
+Saint Kitts and Nevis,High-income economies,KNA,16509.27461
+Lithuania,High-income economies,LTU,1075119.064
+Latvia,High-income economies,LVA,519731.9655
+Netherlands,High-income economies,NLD,3795305.245
+Oman,High-income economies,OMN,129770.5636
+Panama,High-income economies,PAN,583529.7222
+Poland,High-income economies,POL,9632514.655
+Puerto Rico,High-income economies,PRI,55177.58785
+Portugal,High-income economies,PRT,924985.4389
+French Polynesia,High-income economies,PYF,7295.322222
+Singapore,High-income economies,SGP,7314.481481
+Slovakia,High-income economies,SVK,875977.9364
+Slovenia,High-income economies,SVN,187623.9511
+Sweden,High-income economies,SWE,1624724.032
+Trinidad and Tobago,High-income economies,TTO,78884.27907
+"China, Taiwan Province of",High-income economies,TWN,1440290.574
+Uruguay,High-income economies,URY,760855.0278
+United States of America,High-income economies,USA,79629433.06
+Afghanistan,Low income economies,AFG,1190590.667
+Burundi,Low income economies,BDI,983474.1739
+Benin,Low income economies,BEN,1225943.889
+Burkina Faso,Low income economies,BFA,739044.7302
+Central African Republic,Low income economies,CAF,317065.4815
+Democratic Republic of the Congo,Low income economies,COD,5831078.889
+Ethiopia,Low income economies,ETH,3573276.929
+Guinea,Low income economies,GIN,997946.3095
+Guinea-Bissau,Low income economies,GNB,86849.98413
+Haiti,Low income economies,HTI,731195.1481
+Liberia,Low income economies,LBR,200609.6825
+Madagascar,Low income economies,MDG,1826229.103
+Mali,Low income economies,MLI,1417071.381
+Mozambique,Low income economies,MOZ,1653910.437
+Malawi,Low income economies,MWI,2644915.032
+Niger,Low income economies,NER,1401657.6
+Nepal,Low income economies,NPL,2640598.04
+Rwanda,Low income economies,RWA,1176435.583
+Senegal,Low income economies,SEN,597284.754
+Sierra Leone,Low income economies,SLE,802644.1574
+Somalia,Low income economies,SOM,152552.1111
+Syrian Arab Republic,Low income economies,SYR,1660344.587
+Chad,Low income economies,TCD,759309.9556
+United Republic of Tanzania,Low income economies,TZA,3859112.119
+Uganda,Low income economies,UGA,4034943.556
+Yemen,Low income economies,YEM,380842.2222
+Zimbabwe,Low income economies,ZWE,813992.8095
+Angola,Lower-middle-income economies,AGO,2464039.214
+Bangladesh,Lower-middle-income economies,BGD,11687560.69
+Bolivia (Plurinational State of),Lower-middle-income economies,BOL,1772921.984
+Bhutan,Lower-middle-income economies,BTN,59525.67616
+Côte d'Ivoire,Lower-middle-income economies,CIV,2375146.825
+Cameroon,Lower-middle-income economies,CMR,2498942.365
+Congo,Lower-middle-income economies,COG,386519.537
+Cabo Verde,Lower-middle-income economies,CPV,20511.9
+Djibouti,Lower-middle-income economies,DJI,7751.966667
+Egypt,Lower-middle-income economies,EGY,11722085.63
+Georgia,Lower-middle-income economies,GEO,240193.1834
+Ghana,Lower-middle-income economies,GHA,4370562.397
+Honduras,Lower-middle-income economies,HND,1226108.206
+Indonesia,Lower-middle-income economies,IDN,22265197.8
+India,Lower-middle-income economies,IND,118362061.6
+Kenya,Lower-middle-income economies,KEN,2582619.635
+Kyrgyzstan,Lower-middle-income economies,KGZ,653609.5476
+Cambodia,Lower-middle-income economies,KHM,2303159.944
+Lao People's Democratic Republic,Lower-middle-income economies,LAO,1560468.546
+Sri Lanka,Lower-middle-income economies,LKA,951920.5079
+Morocco,Lower-middle-income economies,MAR,3336949.825
+Republic of Moldova,Lower-middle-income economies,MDA,861703.0463
+Myanmar,Lower-middle-income economies,MMR,7812436.62
+Nigeria,Lower-middle-income economies,NGA,21093494.44
+Nicaragua,Lower-middle-income economies,NIC,1203776.213
+Pakistan,Lower-middle-income economies,PAK,16463770.33
+Philippines,Lower-middle-income economies,PHL,10287292.13
+Papua New Guinea,Lower-middle-income economies,PNG,788743.5648
+El Salvador,Lower-middle-income economies,SLV,1067251.659
+Eswatini,Lower-middle-income economies,SWZ,796727.881
+Tunisia,Lower-middle-income economies,TUN,996822.9421
+Ukraine,Lower-middle-income economies,UKR,16107240.81
+Uzbekistan,Lower-middle-income economies,UZB,3179863.926
+Viet Nam,Lower-middle-income economies,VNM,13133298.91
+Zambia,Lower-middle-income economies,ZMB,1343738.63
+"China, mainland",Upper-middle-income economies,CHN,210404393
+Albania,Upper-middle-income economies,ALB,306883.9365
+Armenia,Upper-middle-income economies,ARM,408406.3003
+Azerbaijan,Upper-middle-income economies,AZE,890495.3254
+Bulgaria,Upper-middle-income economies,BGR,1542607.101
+Bosnia and Herzegovina,Upper-middle-income economies,BIH,386538.7373
+Belarus,Upper-middle-income economies,BLR,3468944.389
+Belize,Upper-middle-income economies,BLZ,261901.6
+Brazil,Upper-middle-income economies,BRA,116225276.6
+Colombia,Upper-middle-income economies,COL,8148164.81
+Costa Rica,Upper-middle-income economies,CRI,1549951.873
+Cuba,Upper-middle-income economies,CUB,4010867.25
+Dominica,Upper-middle-income economies,DMA,18000.625
+Dominican Republic,Upper-middle-income economies,DOM,1418407.786
+Algeria,Upper-middle-income economies,DZA,2919598.833
+Ecuador,Upper-middle-income economies,ECU,3251374.972
+Fiji,Upper-middle-income economies,FJI,392729.0833
+Gabon,Upper-middle-income economies,GAB,204339.3519
+Grenada,Upper-middle-income economies,GRD,12155.4537
+Guatemala,Upper-middle-income economies,GTM,4603726.984
+Guyana,Upper-middle-income economies,GUY,589485.0463
+Iran (Islamic Republic of),Upper-middle-income economies,IRN,9917861.698
+Iraq,Upper-middle-income economies,IRQ,1269405.571
+Jamaica,Upper-middle-income economies,JAM,415068.0185
+Kazakhstan,Upper-middle-income economies,KAZ,3588262.278
+Lebanon,Upper-middle-income economies,LBN,393140.2846
+Saint Lucia,Upper-middle-income economies,LCA,12334.36111
+Mexico,Upper-middle-income economies,MEX,18068716.52
+North Macedonia,Upper-middle-income economies,MKD,315100.6481
+Mauritius,Upper-middle-income economies,MUS,627202.7143
+Malaysia,Upper-middle-income economies,MYS,727703.6905
+Peru,Upper-middle-income economies,PER,4084380.087
+Paraguay,Upper-middle-income economies,PRY,2378856.093
+Romania,Upper-middle-income economies,ROU,4879525.427
+Russian Federation,Upper-middle-income economies,RUS,24945259.32
+Serbia,Upper-middle-income economies,SRB,2517054.06
+Suriname,Upper-middle-income economies,SUR,81404.53704
+Thailand,Upper-middle-income economies,THA,23286739.91
+Turkmenistan,Upper-middle-income economies,TKM,597346.8426
+Turkey,Upper-middle-income economies,TUR,14419502.72
+Saint Vincent and the Grenadines,Upper-middle-income economies,VCT,18576.53704
+Venezuela (Bolivarian Republic of),Upper-middle-income economies,VEN,2714020.287
+Samoa,Upper-middle-income economies,WSM,15881.01111
+South Africa,Upper-middle-income economies,ZAF,6484373.619
