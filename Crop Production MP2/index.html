@@ -688,7 +688,7 @@
                                         .attr("text-anchor", "start")
                                     // Add a scale for bubble size
                                     const z = d3.scaleSqrt()
-                                        .domain([10000, 500000000])
+                                        .domain([1000, 400000000])
                                         .range([2, 50]);
                                     // Add a scale for bubble color
                                     allgroups = new Set(data.map(d => d.Income_Group))//= ["High-income economies", "Upper-middle-income economies", "Lower-middle-income economies", "Low income economies"]
@@ -756,9 +756,9 @@
                                     // ---------------------------//
 
                                     // Add legend: circles
-                                    const valuesToShow = [1000000, 10000000, 100000000]
-                                    const xCircle = 690
-                                    const xLabel = 760
+                                    const valuesToShow = [100000, 1000000, 10000000]
+                                    const xCircle = 620
+                                    const xLabel = 680
                                     svg_y
                                         .selectAll("legend")
                                         .data(valuesToShow)
@@ -788,7 +788,7 @@
                                         .join("text")
                                         .attr('x', xLabel)
                                         .attr('y', d => height - 100 - z(d))
-                                        .text(d => d / 1000000)
+                                        .text(d => d / 100000)
                                         .style("font-size", 10)
                                         .attr('alignment-baseline', 'middle')
 
