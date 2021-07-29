@@ -88,16 +88,16 @@
                                         <a class="page-scroll active" href="#home">Home</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="page-scroll" href="#about">About</a>
+                                        <a class="page-scroll" href="#about">Crop Production</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="page-scroll" href="#services">Services</a>
+                                        <a class="page-scroll" href="#services">Chemical Additives Usage</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="page-scroll" href="#portfolio">Gallery</a>
+                                        <a class="page-scroll" href="#portfolio">World Map</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="page-scroll" href="#team">Team</a>
+                                        <a class="page-scroll" href="#team">Crop Yield</a>
                                     </li>
                                 </ul>
                             </div> <!-- navbar collapse -->
@@ -119,7 +119,7 @@
                                 <p class="wow fadeInUp" data-wow-duration="1.3s" data-wow-delay="0.5s">The Narrative
                                     Visualization will explore the effects of agricultural chemical additives, <br
                                         class="d-none d-xl-block"> such as Fertilizers and Pesticides, on the production
-                                    rate of crops.</p>
+                                    rate of crops between Year 2002 and 2018.</p>
                                 <a href="#about" class="main-btn wow fadeInUp" data-wow-duration="1.3s"
                                     data-wow-delay="0.8s">Explore</a>
                             </div> <!-- hero content -->
@@ -140,8 +140,9 @@
                 <div class="row justify-content-center">
                     <div class="col-lg-8 col-md-10">
                         <div class="about_content pt-120 pb-130">
-                            <h4 class="title wow fadeInUp" data-wow-duration="1.3s" data-wow-delay="0.2s">About Our
-                                Creative Proccess</h4>
+                            <h4 class="title wow fadeInUp" data-wow-duration="1.3s" data-wow-delay="0.2s">AVG. Crop
+                                Production Visual Comparison of Both Pesticide and Fertilizer Usage Relative to Nations
+                            </h4>
                             <!-- Create a div where the graph will take place -->
                             <div class="wow fadeInUp" data-wow-duration="1.3s" data-wow-delay="0.4s"
                                 id="scatterplot_crop_output"></div>
@@ -171,7 +172,7 @@
                                 d3.csv("https://raw.githubusercontent.com/parkchrishj/Crop-Production/main/Crop%20Production%20MP2/assets/Crops/Crop_Production.csv")
                                     .then(function (data) {
                                         // x axis
-                                        const x = d3.scaleLinear().domain([0, 70000]).range([0, width - 200]);
+                                        const x = d3.scaleLinear().domain([0, 400000]).range([0, width - 200]);
                                         svg.append("g")
                                             .attr("transform", `translate(0, ${height})`)
                                             .call(d3.axisBottom(x).ticks(8));
@@ -181,16 +182,16 @@
                                         //     .call(d3.axisBottom(x).ticks(4).tickFormat(d3.format("~s")));
                                         svg.append("text")
                                             .attr("text-anchor", "end")
-                                            .attr("x", width - 200)
+                                            .attr("x", width - 300)
                                             .attr("y", height + 50)
                                             .text("Agricultural Pesticides Used (Tonnes)");
                                         // y axis
-                                        const y = d3.scaleLinear().domain([0, 10000000]).range([height, 0]);
+                                        const y = d3.scaleLinear().domain([0, 50000000]).range([height, 0]);
                                         svg.append("g")
                                             .call(d3.axisLeft(y).ticks(10));
                                         svg.append("text")
                                             .attr("text-anchor", "end")
-                                            .attr("x", 0)
+                                            .attr("x", -60)
                                             .attr("y", -20)
                                             .text("Agricultural Fertilizers Used (Tonnes)")
                                             .attr("text-anchor", "start")
@@ -322,7 +323,20 @@
                                             .attr("y", height - 100 + 30)
                                             .text("Hectogram (Hg)")
                                             .attr("text-anchor", "middle")
+                                        //annotation
+                                        svg.append("text")
+                                            .attr('x', 320)
+                                            .attr("y", height - 180)
+                                            .text("Countries with more chemical additives produced more crops")
+                                            .attr("text-anchor", "middle")
+                                            .style("font-size", "11px")
 
+                                        svg.append("text")
+                                            .attr('x', 80)
+                                            .attr("y", height - 193)
+                                            .text("----------------->")
+                                            .attr("transform", "translate(20," + (height / 2) + ") rotate(-35)")
+                                            .attr("text-anchor", "middle")
                                         // Add one dot in the legend for each name.
                                         const size = 20
                                         svg.selectAll("myrect")
@@ -366,9 +380,9 @@
             <div class="row justify-content-center">
                 <div class="col-lg-12">
                     <div class="section_title text-center pb-25">
-                        <h4 class="title wow fadeInUp" data-wow-duration="1.3s" data-wow-delay="0.2s">Our Services</h4>
-                        <p class="wow fadeInUp" data-wow-duration="1.3s" data-wow-delay="0.4s">Lorem ipsum dolor sit
-                            amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt labor dolore.</p>
+                        <h4 class="title wow fadeInUp" data-wow-duration="1.3s" data-wow-delay="0.2s">Pesticide and
+                            Fertilizer Usage Relative to Nations</h4>
+                        <p class="wow fadeInUp" data-wow-duration="1.3s" data-wow-delay="0.4s"> </p>
                         <div id="circbubbles" class="wow fadeInUp" data-wow-duration="1.3s" data-wow-delay="0.4s"></div>
                         <script>
 
@@ -508,12 +522,15 @@
                 <div class="row justify-content-center">
                     <div class="col-lg-6">
                         <div class="section_title text-center pb-60">
-                            <h4 class="title wow fadeInUp" data-wow-duration="1.3s" data-wow-delay="0.2s">Our Portfolio
+                            <h4 class="title wow fadeInUp" data-wow-duration="1.3s" data-wow-delay="0.2s">World Map of
+                                AVG. Crop Production
                             </h4>
-                            <p class="wow fadeInUp" data-wow-duration="1.3s" data-wow-delay="0.4s">Lorem ipsum dolor sit
-                                amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt labor dolore.
+                            <p class="wow fadeInUp" data-wow-duration="1.3s" data-wow-delay="0.4s">
+                                A world choropleth map of
+                                crop production would help us understand that countries with higher crop production are
+                                larger countries.
                             </p>
-                            <svg id="mapping" width="600" height="300"></svg>
+                            <svg id="mapping" width="800" height="300"></svg>
                             <script>
                                 // The svg
                                 const mappery = d3.select("#mapping"),
@@ -584,6 +601,14 @@
                                         .style("opacity", .8)
                                         .on("mouseover", mouseOver_m)
                                         .on("mouseleave", mouseLeave_m)
+
+                                    //annotation
+                                    mappery.append("text")
+                                        .attr('x', 400)
+                                        .attr("y", height - 280)
+                                        .text("Larger Countries produce more crops")
+                                        .attr("text-anchor", "middle")
+                                        .style("font-size", "11px")
                                 })
                             </script>
                         </div> <!-- section title -->
@@ -603,9 +628,13 @@
             <div class="row justify-content-center">
                 <div class="col-lg-10">
                     <div class="section_title text-center pb-25">
-                        <h4 class="title wow fadeInUp" data-wow-duration="1.3s" data-wow-delay="0.2s">Meet The Team</h4>
-                        <p class="wow fadeInUp" data-wow-duration="1.3s" data-wow-delay="0.4s">Lorem ipsum dolor sit
-                            amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt labor dolore.</p>
+                        <h4 class="title wow fadeInUp" data-wow-duration="1.3s" data-wow-delay="0.2s">AVG. Crop Yield
+                            Visual Comparison</h4>
+                        <p class="wow fadeInUp" data-wow-duration="1.3s" data-wow-delay="0.4s">Countries with higher
+                            crop production have more arable land, so the next step is to look
+                            for the average crop yield rate for all the countries in order to better understand the
+                            effects of
+                            chemical additives to crop production.</p>
                         <div class="wow fadeInUp" data-wow-duration="1.3s" data-wow-delay="0.4s"
                             id="scatterplot_crop_yield"></div>
                         <!-- A bit of CSS: change stroke color of circle on hover (white -> black) -->
@@ -634,7 +663,7 @@
                             d3.csv("https://raw.githubusercontent.com/parkchrishj/Crop-Production/main/Crop%20Production%20MP2/assets/Crops/Crop_Yield.csv")
                                 .then(function (data) {
                                     // x axis
-                                    const x = d3.scaleLinear().domain([0, 70000]).range([0, width - 200]);
+                                    const x = d3.scaleLinear().domain([0, 400000]).range([0, width - 200]);
                                     svg_y.append("g")
                                         .attr("transform", `translate(0, ${height})`)
                                         .call(d3.axisBottom(x).ticks(8));
@@ -644,16 +673,16 @@
                                     //     .call(d3.axisBottom(x).ticks(4).tickFormat(d3.format("~s")));
                                     svg_y.append("text")
                                         .attr("text-anchor", "end")
-                                        .attr("x", width - 200)
+                                        .attr("x", width - 300)
                                         .attr("y", height + 50)
                                         .text("Agricultural Pesticides Used (Tonnes)");
                                     // y axis
-                                    const y = d3.scaleLinear().domain([0, 10000000]).range([height, 0]);
+                                    const y = d3.scaleLinear().domain([0, 50000000]).range([height, 0]);
                                     svg_y.append("g")
                                         .call(d3.axisLeft(y).ticks(10));
                                     svg_y.append("text")
                                         .attr("text-anchor", "end")
-                                        .attr("x", 0)
+                                        .attr("x", -60)
                                         .attr("y", -20)
                                         .text("Agricultural Fertilizers Used (Tonnes)")
                                         .attr("text-anchor", "start")
@@ -769,7 +798,13 @@
                                         .attr("y", height - 100 + 30)
                                         .text("Hectogram / Hectare (Hg/Ha)")
                                         .attr("text-anchor", "middle")
-
+                                    //annotation
+                                    svg_y.append("text")
+                                        .attr('x', 220)
+                                        .attr("y", height - 100)
+                                        .text("Countries yield similar hectograms of crops per hectare")
+                                        .attr("text-anchor", "middle")
+                                        .style("font-size", "11px")
                                     // Add one dot in the legend for each name.
                                     const size = 20
                                     svg_y.selectAll("myrect")
@@ -803,51 +838,6 @@
     </section>
 
     <!--====== TEAM PART ENDS ======-->
-
-    <!--====== TESTIMONIAL PART START ======-->
-
-    <section id="testimonial" class="testimonial_area pt-130 pb-130 bg_cover"
-        style="background-image: url(assets/images/end_crop.jpeg)">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-8">
-                    <div class="testimonial_active_wrapper">
-                        <div class="testimonial_active">
-                            <div class="single_testimonial text-center">
-                                <img src="assets/images/author-1.jpg" alt="author">
-                                <h5 class="author_name">Isabela Moreira</h5>
-                                <span>UX Specialist, Yoast</span>
-                                <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
-                                    tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
-                                    vero eos accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren.
-                                </p>
-                            </div>
-                            <div class="single_testimonial text-center">
-                                <img src="assets/images/author-2.jpg" alt="author">
-                                <h5 class="author_name">Fiona Smith</h5>
-                                <span>Sr. Software Engineer</span>
-                                <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
-                                    tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
-                                    vero eos accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren.
-                                </p>
-                            </div>
-                            <div class="single_testimonial text-center">
-                                <img src="assets/images/author-3.jpg" alt="author">
-                                <h5 class="author_name">Elon Musk</h5>
-                                <span>Creaitve Businessman</span>
-                                <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
-                                    tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
-                                    vero eos accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div> <!-- row -->
-        </div> <!-- container -->
-    </section>
-
-    <!--====== TESTIMONIAL PART ENDS ======-->
 
     <!--====== BACK TOP TOP PART START ======-->
 
