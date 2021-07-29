@@ -1,1 +1,0 @@
-Crop Production and etc
