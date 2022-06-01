@@ -5,8 +5,10 @@ The question I wanted to ask was, “Would agricultural use of fertilizers and p
 The answer I was able to discover thanks to the narrative visualization is, “Yes it does, but there’s a limit. The narrative visualization conveys that agricultural use of fertilizers and pesticides enhances the production rate of crops, but there is a limit to how much better these agricultural chemical additives can improve crop output. Exceeding that level does not result in a significant rise in the yield rate.” 
 
 
-## Demo: https://public.tableau.com/app/profile/chris.park4883/viz/CropProductionwithAgriculturalFertilizersandPesticides/Dashboard
+## Demo: 
+https://public.tableau.com/app/profile/chris.park4883/viz/CropProductionwithAgriculturalFertilizersandPesticides/Dashboard
 The site does its best to represent data visualization in a similar way to the linked Tableau dashboard.
+https://parkchrishj.github.io/Crop-Production/
 To run:
 ```
 1. clone the repository or download zip
